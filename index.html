@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Visualization Dashboard</title>
+    <link rel="stylesheet" href="/src/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://unpkg.com/@hotwired/stimulus@3.2.2/dist/stimulus.umd.js"></script>
+  </head>
+  <body class="bg-gray-50">
+    <div class="container mx-auto px-4 py-8">
+      <header class="mb-8">
+        <h1 class="text-3xl font-bold text-gray-900">Interactive Data Dashboard</h1>
+      </header>
+
+      <main>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Vertical Bar Chart -->
+          <div class="bg-white p-6 rounded-lg shadow-lg h-[400px]"
+               data-controller="chart"
+               data-chart-type-value="bar"
+               data-chart-orientation-value="vertical"
+               data-chart-data-value='[
+                 {
+                   "name": "This Year",
+                   "style": {
+                     "color": "#3B82F6"
+                   },
+                   "data": [
+                     {"label": "Jan", "value": 45},
+                     {"label": "Feb", "value": 52},
+                     {"label": "Mar", "value": 48},
+                     {"label": "Apr", "value": 58},
+                     {"label": "May", "value": 63},
+                     {"label": "Jun", "value": 59}
+                   ]
+                 },
+                 {
+                   "name": "Last Year",
+                   "style": {
+                     "color": "#9333EA"
+                   },
+                   "data": [
+                     {"label": "Jan", "value": 38},
+                     {"label": "Feb", "value": 42},
+                     {"label": "Mar", "value": 40},
+                     {"label": "Apr", "value": 45},
+                     {"label": "May", "value": 48},
+                     {"label": "Jun", "value": 46}
+                   ]
+                 }
+               ]'>
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">Monthly Sales (Vertical)</h2>
+            <div data-chart-target="container" class="h-[calc(100%-2rem)]"></div>
+          </div>
+
+          <!-- Horizontal Bar Chart -->
+          <div class="bg-white p-6 rounded-lg shadow-lg h-[400px]"
+               data-controller="chart"
+               data-chart-type-value="bar"
+               data-chart-orientation-value="horizontal"
+               data-chart-data-value='[
+                 {
+                   "name": "This Year",
+                   "style": {
+                     "color": "#3B82F6"
+                   },
+                   "data": [
+                     {"label": "Jan", "value": 45},
+                     {"label": "Feb", "value": 52},
+                     {"label": "Mar", "value": 48},
+                     {"label": "Apr", "value": 58},
+                     {"label": "May", "value": 63},
+                     {"label": "Jun", "value": 59}
+                   ]
+                 },
+                 {
+                   "name": "Last Year",
+                   "style": {
+                     "color": "#9333EA"
+                   },
+                   "data": [
+                     {"label": "Jan", "value": 38},
+                     {"label": "Feb", "value": 42},
+                     {"label": "Mar", "value": 40},
+                     {"label": "Apr", "value": 45},
+                     {"label": "May", "value": 48},
+                     {"label": "Jun", "value": 46}
+                   ]
+                 }
+               ]'>
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">Monthly Sales (Horizontal)</h2>
+            <div data-chart-target="container" class="h-[calc(100%-2rem)]"></div>
+          </div>
+
+          <!-- Vertical Line Chart -->
+          <div class="bg-white p-6 rounded-lg shadow-lg h-[400px]"
+               data-controller="chart"
+               data-chart-type-value="line"
+               data-chart-orientation-value="vertical"
+               data-chart-data-value='[
+                 {
+                   "name": "Website Traffic",
+                   "style": {
+                     "color": "#3B82F6",
+                     "stroke": "solid",
+                     "gradient": true
+                   },
+                   "data": [
+                     {"label": "Week 1", "value": 1200},
+                     {"label": "Week 2", "value": 1350},
+                     {"label": "Week 3", "value": 1100},
+                     {"label": "Week 4", "value": 1400},
+                     {"label": "Week 5", "value": 1600},
+                     {"label": "Week 6", "value": 1800}
+                   ]
+                 },
+                 {
+                   "name": "Mobile Traffic",
+                   "style": {
+                     "color": "#9333EA",
+                     "stroke": "dashed"
+                   },
+                   "data": [
+                     {"label": "Week 1", "value": 800},
+                     {"label": "Week 2", "value": 950},
+                     {"label": "Week 3", "value": 900},
+                     {"label": "Week 4", "value": 1000},
+                     {"label": "Week 5", "value": 1200},
+                     {"label": "Week 6", "value": 1400}
+                   ]
+                 }
+               ]'>
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">Weekly Traffic (Vertical)</h2>
+            <div data-chart-target="container" class="h-[calc(100%-2rem)]"></div>
+          </div>
+
+          <!-- Horizontal Line Chart -->
+          <div class="bg-white p-6 rounded-lg shadow-lg h-[400px]"
+               data-controller="chart"
+               data-chart-type-value="line"
+               data-chart-orientation-value="horizontal"
+               data-chart-data-value='[
+                 {
+                   "name": "Website Traffic",
+                   "style": {
+                     "color": "#3B82F6",
+                     "stroke": "solid",
+                     "gradient": true
+                   },
+                   "data": [
+                     {"label": "Week 1", "value": 1200},
+                     {"label": "Week 2", "value": 1350},
+                     {"label": "Week 3", "value": 1100},
+                     {"label": "Week 4", "value": 1400},
+                     {"label": "Week 5", "value": 1600},
+                     {"label": "Week 6", "value": 1800}
+                   ]
+                 },
+                 {
+                   "name": "Mobile Traffic",
+                   "style": {
+                     "color": "#9333EA",
+                     "stroke": "dashed"
+                   },
+                   "data": [
+                     {"label": "Week 1", "value": 800},
+                     {"label": "Week 2", "value": 950},
+                     {"label": "Week 3", "value": 900},
+                     {"label": "Week 4", "value": 1000},
+                     {"label": "Week 5", "value": 1200},
+                     {"label": "Week 6", "value": 1400}
+                   ]
+                 }
+               ]'>
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">Weekly Traffic (Horizontal)</h2>
+            <div data-chart-target="container" class="h-[calc(100%-2rem)]"></div>
+          </div>
+
+          <!-- Data Input Section -->
+          <div class="bg-white p-6 rounded-lg shadow-lg md:col-span-2"
+               data-controller="data-input">
+            <h2 class="text-xl font-semibold mb-4 text-gray-800">Update Data</h2>
+            <form data-action="submit->data-input#updateData">
+              <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-gray-700">Series Name</label>
+                  <input type="text" 
+                         data-data-input-target="series"
+                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700">Label</label>
+                  <input type="text" 
+                         data-data-input-target="label"
+                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-gray-700">Value</label>
+                  <input type="number" 
+                         data-data-input-target="value"
+                         class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+                <div class="flex items-end">
+                  <button type="submit" 
+                          class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition-colors">
+                    Add Data
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+    <script type="module">
+      // Initialize Stimulus
+      const application = Stimulus.Application.start();
+
+      // Import controllers
+      import { BaseChartController as ChartController } from '/src/controllers/base-chart-controller.js';
+      import { DataInputController } from '/src/controllers/data-input-controller.js';
+
+      // Register controllers
+      application.register('chart', ChartController);
+      application.register('data-input', DataInputController);
+    </script>
+  </body>
+</html>
